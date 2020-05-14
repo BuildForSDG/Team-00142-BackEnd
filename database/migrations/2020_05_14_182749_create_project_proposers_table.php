@@ -13,20 +13,20 @@ class CreateProjectProposersTable extends Migration
      */
     public function up()
     {
-        Schema::create('project_proposers', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('phoneNumber');
-            $table->string('email',250)->unique();
-            $table->integer('nationalId')->unique();
-            $table->text('name');
-            $table->bigInteger('userId');
+        // Schema::create('project_proposers', function (Blueprint $table) {
+        //     $table->bigIncrements('id');
+        //     $table->integer('phoneNumber');
+        //     $table->string('email',100)->unique();
+        //     $table->integer('nationalId')->unique();
+        //     $table->text('name');
+        //     $table->bigInteger('userId');
 
-            // ! setting the foreign key to type_of_assistances
-            $table->foreign('userId')->references('id')->on('users');
+        //     // ! setting the foreign key to type_of_assistances
+        //     $table->foreign('userId')->references('id')->on('users');
 
-            $table->timestamps();
+        //     $table->timestamps();
 
-        });
+        // });
     }
 
     /**

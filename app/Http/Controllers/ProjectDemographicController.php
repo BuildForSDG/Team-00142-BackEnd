@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\projectDemographic;
 use Illuminate\Http\Request;
+use App\Http\Resources\ProjectDemographicResource;
+use App\Http\Resources\ProjectDemographicCollection;
+use App\Http\Requests\createProjectDemographic;
 
 class ProjectDemographicController extends Controller
 {
@@ -14,7 +17,8 @@ class ProjectDemographicController extends Controller
      */
     public function index()
     {
-        //
+        //returning all instances of project Demographics Info
+        return ProjectDemographicResource::collection(projectDemographic::paginate(10));
     }
 
     /**
@@ -33,9 +37,13 @@ class ProjectDemographicController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(createProjectDemographic $request)
     {
-        //
+        // creating new project Demographics
+        $newProjectDemo = new projectDemographic();
+        $newProjectDemo->name=$request->name;      
+
+        $newProjectDemo->save();
     }
 
     /**
@@ -46,7 +54,8 @@ class ProjectDemographicController extends Controller
      */
     public function show(projectDemographic $projectDemographic)
     {
-        //
+        // display one record of project Demographic
+        return new ProjectDemographicResource($projectDemographic);
     }
 
     /**

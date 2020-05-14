@@ -13,16 +13,16 @@ class CreatePhotosTable extends Migration
      */
     public function up()
     {
-        Schema::create('photos', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->text('locationOfPicture');
-            $table->bigInteger('projectId');
+        // Schema::create('photos', function (Blueprint $table) {
+        //     $table->bigIncrements('id');
+        //     $table->text('locationOfPicture');
+        //     $table->bigInteger('projectId');
 
-            // ! foreign key referencing the project details . 
-            $table->foreign('projectId')->references('id')->on('project_details');
+        //     // ! foreign key referencing the project details . 
+        //     $table->foreign('projectId')->references('id')->on('project_details');
 
-            $table->timestamps();
-        });
+        //     $table->timestamps();
+        // });
     }
 
     /**
