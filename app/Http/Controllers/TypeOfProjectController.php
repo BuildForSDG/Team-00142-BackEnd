@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\Project_Type\ProjectTypeResource;
 use App\typeOfProject;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,7 @@ class TypeOfProjectController extends Controller
      */
     public function index()
     {
-        //
+        return ProjectTypeResource::collection(typeOfProject::all());
     }
 
     /**
@@ -35,7 +36,13 @@ class TypeOfProjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pType = new typeOfProject();
+        $pType->name = $request->name;
+        $pType->description = $request->description;
+
+        $pType->save();
+
+        return;
     }
 
     /**
