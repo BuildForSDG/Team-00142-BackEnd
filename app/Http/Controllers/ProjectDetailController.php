@@ -16,7 +16,10 @@ class ProjectDetailController extends Controller
      */
     public function index()
     {
-        return ProjectDetailsResource::collection(projectDetail::all());
+        // return ProjectDetailsResource::collection(projectDetail::all());
+        $data = projectDetail::all();
+
+        return $data;
     }
 
     /**
@@ -52,7 +55,9 @@ class ProjectDetailController extends Controller
 
         $pDetails->save();
 
-        return;
+        return response([
+            null
+        ], 201);
     }
 
     /**

@@ -23,7 +23,7 @@ class ProjectDetailsCollection extends ResourceCollection
             'projectDetails' => $this->projectDetails,
             'typeOfAssistanceRequiredId' => $this->typeOfAssistance->id,
             'projectProposerId' => $this->projectProposer->id,
-            'financialBreakDownDOcumentLocation' => $this->financialBreakDownDOcumentLocation,
+            'financialBreakDownDocumentLocation' => $this->financialBreakDownDocumentLocation,
             'businessCaseDocumentLocation' => $this->businessCaseDocumentLocation,
             'asistanceRequiredToRefineDocuments' => $this->asistanceRequiredToRefineDocuments,
             'approved' => $this->approved,

@@ -18,7 +18,10 @@ class ProjectDemographicController extends Controller
     public function index()
     {
         //returning all instances of project Demographics Info
-        return ProjectDemographicResource::collection(projectDemographic::all());
+        // return ProjectDemographicResource::collection(projectDemographic::all()->first());
+        $demographic = projectDemographic::all();
+
+        return $demographic;
     }
 
     /**
@@ -45,7 +48,9 @@ class ProjectDemographicController extends Controller
 
         $newProjectDemo->save();
 
-        return;
+        return response([
+            null
+        ], 201);
     }
 
     /**
