@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         // $this->call(UsersTableSeeder::class);
-        User::create(array('email' => 'test@gmail.com', 'password' => '1234test'));
+
+        factory(App\projectDetail::class,50)->create();
+
     }
 }

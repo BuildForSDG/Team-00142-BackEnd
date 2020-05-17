@@ -15,11 +15,16 @@ class ProjectDetailController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
+
     {
         // return ProjectDetailsResource::collection(projectDetail::all());
         $data = projectDetail::all();
 
         return $data;
+
+    {        
+        
+
     }
 
     /**
@@ -91,7 +96,7 @@ class ProjectDetailController extends Controller
      */
     public function update(Request $request, projectDetail $projectDetail)
     {
-        //
+        
     }
 
     /**
