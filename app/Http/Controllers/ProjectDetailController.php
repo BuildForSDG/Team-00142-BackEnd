@@ -13,8 +13,8 @@ class ProjectDetailController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    {        
+        
     }
 
     /**
@@ -69,7 +69,7 @@ class ProjectDetailController extends Controller
      */
     public function update(Request $request, projectDetail $projectDetail)
     {
-        //
+        
     }
 
     /**
