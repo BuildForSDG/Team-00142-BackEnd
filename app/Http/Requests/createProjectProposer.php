@@ -25,7 +25,7 @@ class createProjectProposer extends FormRequest
     {
         return [            
             'phoneNumber'=>'required',
-            'email'=>'required|emaail',
+            'email'=>'required|email',
             'nationalId'=>'required|integer',
             'name'=>'required|min:10'
         ];

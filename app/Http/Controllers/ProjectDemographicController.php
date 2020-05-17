@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\projectDemographic;
 use Illuminate\Http\Request;
-use App\Http\Resources\ProjectDemographicResource;
-use App\Http\Resources\ProjectDemographicCollection;
+use App\Http\Resources\Project_Demog\ProjectDemographicResource;
+use App\Http\Resources\Project_Demog\ProjectDemographicCollection;
 use App\Http\Requests\createProjectDemographic;
 
 class ProjectDemographicController extends Controller
@@ -18,7 +18,10 @@ class ProjectDemographicController extends Controller
     public function index()
     {
         //returning all instances of project Demographics Info
-        return ProjectDemographicResource::collection(projectDemographic::paginate(10));
+        // return ProjectDemographicResource::collection(projectDemographic::all()->first());
+        $demographic = projectDemographic::all();
+
+        return $demographic;
     }
 
     /**
@@ -44,6 +47,10 @@ class ProjectDemographicController extends Controller
         $newProjectDemo->name=$request->name;      
 
         $newProjectDemo->save();
+
+        return response([
+            null
+        ], 201);
     }
 
     /**

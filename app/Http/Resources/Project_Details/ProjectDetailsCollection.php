@@ -14,6 +14,20 @@ class ProjectDetailsCollection extends ResourceCollection
      */
     public function toArray($request)
     {
-        return parent::toArray($request);
+        // return parent::toArray($request);
+        return [
+            'id' => $this->id,
+            'projectName' => $this->projectName,
+            'type_of_projects_id' => $this->typeOfProject->id,
+            'projectDemographicId' => $this->projectDemographic->id,
+            'projectDetails' => $this->projectDetails,
+            'typeOfAssistanceRequiredId' => $this->typeOfAssistance->id,
+            'projectProposerId' => $this->projectProposer->id,
+            'financialBreakDownDocumentLocation' => $this->financialBreakDownDocumentLocation,
+            'businessCaseDocumentLocation' => $this->businessCaseDocumentLocation,
+            'asistanceRequiredToRefineDocuments' => $this->asistanceRequiredToRefineDocuments,
+            'approved' => $this->approved,
+            'approvedById' => $this->User->id
+        ];
     }
 }

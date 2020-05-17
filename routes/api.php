@@ -17,7 +17,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// ! This section of the code is used to create the API endpoints for the Community Based projects.
-
+Route::apiResource('/projectDemo', 'ProjectDemographicController');
+Route::apiResource('/projectDetails', 'ProjectDetailController');
 Route::apiResource('/typeOfProjects/{typeOfProject}/projectDetail','typesOfProject');
 

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Resources\Project_Type;
+namespace App\Http\Resources\Project_Assistance;
 
 use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class ProjectTypeCollection extends ResourceCollection
+class ProjectAssistanceCollection extends ResourceCollection
 {
     /**
      * Transform the resource collection into an array.
@@ -16,9 +16,8 @@ class ProjectTypeCollection extends ResourceCollection
     {
         // return parent::toArray($request);
         return [
-            'id' => $this->id,
-            'name' => $this->name,
-            'description' => $this->description
+            'id'=>$this->id,
+            'assistanceName'=>$this->assistanceName
         ];
     }
 }

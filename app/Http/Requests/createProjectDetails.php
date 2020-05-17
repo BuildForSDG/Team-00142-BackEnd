@@ -13,7 +13,7 @@ class createProjectDetails extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -24,10 +24,17 @@ class createProjectDetails extends FormRequest
     public function rules()
     {
         return [
-            // 'projectName' => 'required|min:5',
-            // 'type_of_projects_id' => 'required|integer',
-            // 'projectDemographic' => 'required|integer',
-            // 'projectDetails'
+            'projectName' => 'required|min:5',
+            'type_of_projects_id' => 'required|integer',
+            'projectDemographic' => 'required|integer',
+            'projectDetails' => 'required',
+            'typeOfAssistanceRequiredId' => 'required|integer',
+            'projectProposerId ' => 'required|integer',
+            'financialBreakDownDocumentLocation' => 'required',
+            'businessCaseDocumentLocation' => 'required',
+            'asistanceRequiredToRefineDocuments' => 'required',
+            'approved' => 'required',
+            'approvedById' => 'required|integer'
         ];
     }
 }

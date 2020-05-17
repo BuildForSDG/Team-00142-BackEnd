@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\createProjectProposer;
+use App\Http\Resources\Project_Proposer\ProjectProposerResource;
 use App\projectProposer;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,7 @@ class ProjectProposerController extends Controller
      */
     public function index()
     {
-        //
+        return ProjectProposerResource::collection(projectProposer::all());
     }
 
     /**
@@ -33,9 +35,17 @@ class ProjectProposerController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(createProjectProposer $request)
     {
-        //
+        $projProposer = new projectProposer();
+        $projProposer->phoneNumber = $request->phoneNumber;
+        $projProposer->email = $request->email;
+        $projProposer->nationalId = $request->nationalId;
+        $projProposer->name = $request->name;
+
+        $projProposer->save();
+
+        return;
     }
 
     /**
