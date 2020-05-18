@@ -16,14 +16,15 @@ class TypeOfProjectResource extends JsonResource
     {
         // return parent::toArray($request);
         if ($this->typeOfAssistanceRequiredId == 1) {
-            # code...
+            
             return [
                 'id'=> $this->id,
                 'projectName'=>$this->projectName,
                 'typeOfProject'=>$this->belongsToTypeOfProject->name,
                 'projectDemographic'=>$this->belongsToProjectDemographic->name,
                 'projectDetails'=>$this->projectDetails,
-                'typeOfAssistanceRequired'=> $this->belongsToTypeOfAssistance->assistanceName,
+                'typeOfAssistanceRequired' => $this->belongsToTypeOfAssistance
+                                                    ->assistanceName,           
                 'projectProposer'=>$this->belongsToProjectProposer->name,
                 'dateubmitted'=>$this->approvedAt,   
                 'financialDocumentation'=>[
@@ -34,16 +35,18 @@ class TypeOfProjectResource extends JsonResource
                 ]    
             ];        
         } else {
-            # code...            
+                      
                 return[
                             'id'=> $this->id,
                             'projectName'=>$this->projectName,
-                            'typeOfProject'=>$this->belongsToTypeOfProject->name,                            
-                            'projectDemographic'=>$this->belongsToProjectDemographic->name,
+                            'typeOfProject'=>$this->belongsToTypeOfProject->name, 
+                            'projectDemographic'=>$this->belongsToProjectDemographic
+                                                        ->name,
                             'projectDetails'=>$this->projectDetails,
-                            'typeOfAssistanceRequired'=> $this->belongsToTypeOfAssistance->assistanceName,
+                            'typeOfAssistanceRequired'=> $this->belongsToTypeOfAssistance
+                                                              ->assistanceName,
                             'projectProposer'=>$this->belongsToProjectProposer->name,
-                            'dateubmitted'=>$this->approvedAt                                    
+                            'dateubmitted'=>$this->approvedAt                       
             ];
         }     
     }
