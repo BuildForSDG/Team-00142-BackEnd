@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\projectDetail;
+use App\Http\Requests\createProjectDetails;
 use App\projectProposer;
-class phaseOne extends Controller
+
+class phaseOneRegistration extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +16,10 @@ class phaseOne extends Controller
      */
     public function index()
     {
-        //
+        // return ProjectDetailsResource::collection(projectDetail::all());
+        $data = projectDetail::all();
+
+        return $data;
     }
 
     /**
@@ -33,7 +38,7 @@ class phaseOne extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(createProjectDetails $request)
     {
         //
 
@@ -70,13 +75,9 @@ class phaseOne extends Controller
             // email.... 
 
         } else {
-            
-            return respone('Erroe in email',203);
-            
-        }
-        
 
-        
+            return respone('Error in email', 203);
+        }
     }
 
     /**
