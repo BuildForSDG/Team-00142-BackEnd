@@ -17,10 +17,10 @@ class CreateProjectDetailsTable extends Migration
             $table->engine = "InnoDB";
             $table->bigIncrements('id');
             $table->text('projectName');
-            $table->bigInteger('type_of_projects_id')->unsigned()->nullable();
+            $table->bigInteger('typeOfProjectId')->unsigned()->nullable();
 
             // ! setting the forein key to typeOfProject.
-            $table->foreign('type_of_projects_id')->references('id')->on('type_of_projects');
+            $table->foreign('typeOfProjectId')->references('id')->on('type_of_projects');
 
             $table->bigInteger('projectDemographicId')->unsigned()->nullable();            
             // ! setting the foreign key to project_demographics
