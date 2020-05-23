@@ -17,24 +17,24 @@ class CreateProjectDetailsTable extends Migration
             $table->engine = "InnoDB";
             $table->bigIncrements('id');
             $table->text('projectName');
-            $table->bigInteger('type_of_projects_id')->unsigned();
+            $table->bigInteger('type_of_projects_id');
 
             // ! setting the forein key to typeOfProject.
             $table->foreign('type_of_projects_id')->references('id')->on('type_of_projects');
 
-            $table->bigInteger('projectDemographicId')->unsigned()->nullable();
-
+            $table->bigInteger('projectDemographicId')->nullable();
+            $table->u
             // ! setting the foreign key to project_demographics
             $table->foreign('projectDemographicId')->references('id')->on('project_demographics');
 
-            $table->longText('projectDetails')->unsigned()->nullable();
+            $table->longText('projectDetails')->nullable();
             
-            $table->bigInteger('typeOfAssistanceRequiredId')->unsigned()->nullable();
+            $table->bigInteger('typeOfAssistanceRequiredId')->nullable();
 
             // ! setting the foreign key to type_of_assistances
             $table->foreign('typeOfAssistanceRequiredId')->references('id')->on('type_of_assistances');
 
-            $table->bigInteger('projectProposerId')->unsigned();
+            $table->bigInteger('projectProposerId');
 
             // ! setting the foreign key to type_of_assistances
             $table->foreign('projectProposerId')->references('id')->on('project_proposers');
@@ -43,7 +43,7 @@ class CreateProjectDetailsTable extends Migration
             $table->text('businessCaseDocumentLocation')->nullable();
             $table->boolean('asistanceRequiredToRefineDocuments')->nullable();
             $table->boolean('approved')->nullable();
-            $table->bigInteger('approvedById')->unsigned()->nullable();
+            $table->bigInteger('approvedById')->nullable();
 
             // ! setting the foreign key to type_of_assistances
             $table->foreign('approvedById')->references('id')->on('users');
