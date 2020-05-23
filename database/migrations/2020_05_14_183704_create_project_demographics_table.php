@@ -13,11 +13,11 @@ class CreateProjectDemographicsTable extends Migration
      */
     public function up()
     {
-        // Schema::create('project_demographics', function (Blueprint $table) {
-        //     $table->bigIncrements('id');
-        //     $table->text('name');
-        //     $table->timestamps();
-        // });
+        Schema::create('project_demographics', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            $table->text('name');
+            $table->timestamps();
+        });
     }
 
     /**
