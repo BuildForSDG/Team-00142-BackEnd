@@ -44,7 +44,7 @@ class ProjectDemographicController extends Controller
     {
         // creating new project Demographics
         $newProjectDemo = new projectDemographic();
-        $newProjectDemo->name=$request->name;      
+        $newProjectDemo->name = $request->name;
 
         $newProjectDemo->save();
 
