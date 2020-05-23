@@ -24,19 +24,19 @@ class CreateProjectDetailsTable extends Migration
             $table->bigInteger('projectDemographicId')->nullable();
 
             // ! setting the foreign key to project_demographics
-            $table->foreign('project_demographics_id')->references('id')->on('project_demographics');
+            $table->foreign('projectDemographicId')->references('id')->on('project_demographics');
 
             $table->longText('projectDetails')->nullable();
             
             $table->bigInteger('typeOfAssistanceRequiredId')->nullable();
 
             // ! setting the foreign key to type_of_assistances
-            $table->foreign('type_of_assistances_id')->references('id')->on('type_of_assistances');
+            $table->foreign('typeOfAssistanceRequiredId')->references('id')->on('type_of_assistances');
 
             $table->bigInteger('projectProposerId');
 
             // ! setting the foreign key to type_of_assistances
-            $table->foreign('project_proposers_id')->references('id')->on('project_proposers');
+            $table->foreign('projectProposerId')->references('id')->on('project_proposers');
 
             $table->text('financialBreakDownDocumentLocation')->nullable();
             $table->text('businessCaseDocumentLocation')->nullable();
