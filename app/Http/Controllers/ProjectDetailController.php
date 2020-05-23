@@ -21,10 +21,7 @@ class ProjectDetailController extends Controller
         $data = projectDetail::all();
 
         return $data;
-
-    {        
-        
-
+                   
     }
 
     /**
