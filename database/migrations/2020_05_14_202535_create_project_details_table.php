@@ -17,23 +17,23 @@ class CreateProjectDetailsTable extends Migration
             $table->engine = "InnoDB";
             $table->bigIncrements('id');
             $table->text('projectName');
-            // $table->bigInteger('type_of_projects_id');
+            $table->bigInteger('type_of_projects_id')->unsigned();;
 
-            // // ! setting the forein key to typeOfProject.
-            // $table->foreign('type_of_projects_id')->references('id')->on('type_of_projects');
+            // ! setting the forein key to typeOfProject.
+            $table->foreign('type_of_projects_id')->references('id')->on('type_of_projects');
 
-            $table->bigInteger('projectDemographicId');            
+            $table->bigInteger('projectDemographicId')->unsigned();;            
             // ! setting the foreign key to project_demographics
             $table->foreign('projectDemographicId')->references('id')->on('project_demographics');
 
             $table->longText('projectDetails')->nullable();
             
-            $table->bigInteger('typeOfAssistanceRequiredId');
+            $table->bigInteger('typeOfAssistanceRequiredId')->unsigned();;
 
             // ! setting the foreign key to type_of_assistances
             $table->foreign('typeOfAssistanceRequiredId')->references('id')->on('type_of_assistances');
 
-            $table->bigInteger('projectProposerId');
+            $table->bigInteger('projectProposerId')->unsigned();;
 
             // ! setting the foreign key to type_of_assistances
             $table->foreign('projectProposerId')->references('id')->on('project_proposers');
@@ -42,7 +42,7 @@ class CreateProjectDetailsTable extends Migration
             $table->text('businessCaseDocumentLocation')->nullable();
             $table->boolean('asistanceRequiredToRefineDocuments')->nullable();
             $table->boolean('approved')->nullable();
-            $table->bigInteger('approvedById');
+            $table->bigInteger('approvedById')->unsigned();;
 
             // ! setting the foreign key to type_of_assistances
             $table->foreign('approvedById')->references('id')->on('users');

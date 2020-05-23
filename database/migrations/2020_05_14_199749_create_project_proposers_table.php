@@ -20,7 +20,7 @@ class CreateProjectProposersTable extends Migration
             $table->string('email',100)->unique();
             $table->integer('nationalId')->unique();
             $table->text('name');
-            $table->bigInteger('userId');
+            $table->bigInteger('userId')->unsigned();
 
             // ! setting the foreign key to type_of_assistances
             $table->foreign('userId')->references('id')->on('users');
