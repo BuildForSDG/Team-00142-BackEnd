@@ -22,8 +22,7 @@ class CreateProjectDetailsTable extends Migration
             // ! setting the forein key to typeOfProject.
             $table->foreign('type_of_projects_id')->references('id')->on('type_of_projects');
 
-            $table->bigInteger('projectDemographicId')->nullable();
-            $table->u
+            $table->bigInteger('projectDemographicId')->nullable();            
             // ! setting the foreign key to project_demographics
             $table->foreign('projectDemographicId')->references('id')->on('project_demographics');
 
