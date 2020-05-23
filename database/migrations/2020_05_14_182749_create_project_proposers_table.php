@@ -14,6 +14,7 @@ class CreateProjectProposersTable extends Migration
     public function up()
     {
         Schema::create('project_proposers', function (Blueprint $table) {
+            $table->engine = "InnoDB";
             $table->bigIncrements('id');
             $table->integer('phoneNumber');
             $table->string('email',100)->unique();
