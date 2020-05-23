@@ -22,13 +22,13 @@ class CreateProjectDetailsTable extends Migration
             // ! setting the forein key to typeOfProject.
             $table->foreign('type_of_projects_id')->references('id')->on('type_of_projects');
 
-            $table->bigInteger('projectDemographicId')->nullable();            
+            $table->bigInteger('projectDemographicId');            
             // ! setting the foreign key to project_demographics
             $table->foreign('projectDemographicId')->references('id')->on('project_demographics');
 
             $table->longText('projectDetails')->nullable();
             
-            $table->bigInteger('typeOfAssistanceRequiredId')->nullable();
+            $table->bigInteger('typeOfAssistanceRequiredId');
 
             // ! setting the foreign key to type_of_assistances
             $table->foreign('typeOfAssistanceRequiredId')->references('id')->on('type_of_assistances');
@@ -42,7 +42,7 @@ class CreateProjectDetailsTable extends Migration
             $table->text('businessCaseDocumentLocation')->nullable();
             $table->boolean('asistanceRequiredToRefineDocuments')->nullable();
             $table->boolean('approved')->nullable();
-            $table->bigInteger('approvedById')->nullable();
+            $table->bigInteger('approvedById');
 
             // ! setting the foreign key to type_of_assistances
             $table->foreign('approvedById')->references('id')->on('users');
