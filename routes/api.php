@@ -18,7 +18,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::apiResource('/projectDemo', 'ProjectDemographicController');
-Route::apiResource('/projectDetails', 'ProjectDetailController');
+Route::apiResource('/phaseOne', 'phaseOneRegistration');
+Route::apiResource('/phaseTwo', 'phaseTwoRegistration');
 Route::apiResource(
     '/typeOfProjects/{typeOfProject}/projectDetail',
     'typesOfProject'

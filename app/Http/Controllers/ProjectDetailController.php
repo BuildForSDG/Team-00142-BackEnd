@@ -15,13 +15,15 @@ class ProjectDetailController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-
     {
         // return ProjectDetailsResource::collection(projectDetail::all());
         $data = projectDetail::all();
 
         return $data;
+<<<<<<< HEAD
                    
+=======
+>>>>>>> c561b242679ea521b9ace93b3e45796f05254e8f
     }
 
     /**
@@ -49,13 +51,13 @@ class ProjectDetailController extends Controller
         $pDetails->projectDetails = $request->projectDetails;
         $pDetails->typeOfAssistanceRequiredId = $request->typeOfAssistanceRequiredId;
         $pDetails->projectProposerId = $request->projectProposerId;
-        $pDetails->financialBreakDownDocumentLocation = $request->financialBreakDownDocumentLocation;
-        $pDetails->businessCaseDocumentLocation = $request->businessCaseDocumentLocation;
-        $pDetails->asistanceRequiredToRefineDocuments = $request->asistanceRequiredToRefineDocuments;
-        $pDetails->approved = $request->approved;
-        $pDetails->approvedById = $request->approvedById;
+        // $pDetails->financialBreakDownDocumentLocation = $request->financialBreakDownDocumentLocation;
+        // $pDetails->businessCaseDocumentLocation = $request->businessCaseDocumentLocation;
+        // $pDetails->asistanceRequiredToRefineDocuments = $request->asistanceRequiredToRefineDocuments;
+        // $pDetails->approved = $request->approved;
+        // $pDetails->approvedById = $request->approvedById;
 
-        $pDetails->save();
+        // $pDetails->save();
 
         return response([
             null
@@ -93,7 +95,7 @@ class ProjectDetailController extends Controller
      */
     public function update(Request $request, projectDetail $projectDetail)
     {
-        
+        //
     }
 
     /**

@@ -91,6 +91,7 @@ class typesOfProject extends Controller
             $projectDetail->businessCaseDocumentLocation = 'public/storage/BuinessCaseDocuments/'.$storageName;
         }
 
+        $projectDetail->projectName = $request->projectName;
         $projectDetail->typeOfProjectId = $request->typeOfProject;
         $projectDetail->projectDemographicId =$request->projectDemographic;
         $projectDetail->projectDetails =$request->projectDetails;
@@ -100,6 +101,8 @@ class typesOfProject extends Controller
         $projectDetail->save();
 
         return response(null,201);
+
+        // return $request;
         
     }
 
