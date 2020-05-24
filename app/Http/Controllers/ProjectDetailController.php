@@ -20,10 +20,6 @@ class ProjectDetailController extends Controller
         $data = projectDetail::all();
 
         return $data;
-<<<<<<< HEAD
-                   
-=======
->>>>>>> c561b242679ea521b9ace93b3e45796f05254e8f
     }
 
     /**
