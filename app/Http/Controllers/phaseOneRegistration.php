@@ -82,19 +82,19 @@ class phaseOneRegistration extends Controller
             $pDetails->save();
             
             
-            // ! this section will have the sending of emails functionality. 
-            $to_name = $projProposer->name;
-            $to_email = $projProposer->email;
-            $bodyOfMail = "To activate your Account, follow the link below.";
-            $data = array('name'=> $projProposer->name, 
-                          'body' => $bodyOfMail);
-            Mail::send(
-                'emails.mail', $data, 
-            function($message) use ($to_name, $to_email) {
-                $message->to($to_email, $to_name)
-                ->subject('Riser Africa Activation Email.');
-                $message->from('ngugigeorge697@gmail.com','Riser Africa Activation Email.');
-            });
+            // // ! this section will have the sending of emails functionality. 
+            // $to_name = $projProposer->name;
+            // $to_email = $projProposer->email;
+            // $bodyOfMail = "To activate your Account, follow the link below.";
+            // $data = array('name'=> $projProposer->name, 
+            //               'body' => $bodyOfMail);
+            // Mail::send(
+            //     'emails.mail', $data, 
+            // function($message) use ($to_name, $to_email) {
+            //     $message->to($to_email, $to_name)
+            //     ->subject('Riser Africa Activation Email.');
+            //     $message->from('ngugigeorge697@gmail.com','Riser Africa Activation Email.');
+            // });
 
             return response(null,200);
 
