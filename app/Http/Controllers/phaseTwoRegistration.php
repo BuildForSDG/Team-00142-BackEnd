@@ -63,7 +63,7 @@ class phaseTwoRegistration extends Controller
             
             $projectDetail->approved = 0;
             $projectDetail->projectDetails = $request->projectDetails;
-            $projectDetail->typeOfAssistanceRequiredId = $request->typeOfAssistanceRequired;
+            $projectDetail->typeOfAssistanceRequiredId = $request->typeOfAssistanceRequiredId;
             $projectDetail->asistanceRequiredToRefineDocuments = $request->asistanceRequiredToRefineDocuments;
     
             $projectDetail->save();
