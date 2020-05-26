@@ -13,21 +13,23 @@ class CreateProjectProposersTable extends Migration
      */
     public function up()
     {
-        Schema::create('project_proposers', function (Blueprint $table) {
-            $table->engine = "InnoDB";
-            $table->bigIncrements('id');
-            $table->integer('phoneNumber');
-            $table->string('email',100)->unique();
-            $table->integer('nationalId')->unique();
-            $table->text('name');
-            $table->bigInteger('userId')->unsigned();
+        Schema::create(
+            'project_proposers',
+            function (Blueprint $table) {
+                $table->engine = "InnoDB";
+                $table->bigIncrements('id');
+                $table->integer('phoneNumber');
+                $table->string('email', 100)->unique();
+                $table->integer('nationalId')->unique();
+                $table->text('name');
+                $table->bigInteger('userId')->unsigned()->nullable();
 
-            // ! setting the foreign key to type_of_assistances
-            $table->foreign('userId')->references('id')->on('users');
+                // ! setting the foreign key to type_of_assistances
+                $table->foreign('userId')->references('id')->on('users');
 
-            $table->timestamps();
-
-        });
+                $table->timestamps();
+            }
+        );
     }
 
     /**
