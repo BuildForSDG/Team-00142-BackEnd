@@ -13,12 +13,13 @@ class CreateTypeOfProjectsTable extends Migration
      */
     public function up()
     {
-        // Schema::create('type_of_projects', function (Blueprint $table) {
-        //     $table->bigIncrements('id');
-        //     $table->text('name');
-        //     $table->longText('description');
-        //     $table->timestamps();
-        // });
+        Schema::create('type_of_projects', function (Blueprint $table) {
+            $table->engine = "InnoDB";
+            $table->bigIncrements('id');
+            $table->text('name');
+            $table->longText('description');
+            $table->timestamps();
+        });
     }
 
     /**

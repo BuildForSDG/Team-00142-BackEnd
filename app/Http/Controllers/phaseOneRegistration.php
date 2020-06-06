@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\projectDetail;
 use App\Http\Requests\createProjectDetails;
 use App\projectProposer;
-
+use Mail;
 class phaseOneRegistration extends Controller
 {
     /**
@@ -38,15 +38,35 @@ class phaseOneRegistration extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(createProjectDetails $request)
+    public function store(Request $request)
     {
-        //
 
         $projProposer = new projectProposer();
         $projProposer->phoneNumber = $request->phoneNumber;
         $projProposer->email = $request->email;
         $projProposer->nationalId = $request->nationalId;
         $projProposer->name = $request->name;
+
+        // ! saving the photos.
+
+        if ($request->hasFile('photo')) {
+
+            $name = pathinfo(
+                $request->file('photo')->getClientOriginalName(), PATHINFO_FILENAME
+            );
+            $extension = pathinfo(
+                $request->file('photo')->getClientOriginalName(), PATHINFO_EXTENSION
+            );
+            $storageName = $name . time() . '.' . $extension;
+            $request->file(
+                'photo'
+            )->storeAs(
+                'public/ProjectProposerImages',
+                $storageName
+            );
+            $projProposer->proposerImage 
+                =  'public/storage/ProjectProposerImages/' . $storageName;
+        }
 
         $projProposer->save();
 
@@ -56,23 +76,28 @@ class phaseOneRegistration extends Controller
 
             $pDetails = new projectDetail();
             $pDetails->projectName = $request->projectName;
-            $pDetails->type_of_projects_id = $request->type_of_projects_id;
-            $pDetails->projectDemographic = $request->projectDemographic;
-            // $pDetails->projectDetails = $request->projectDetails;
-            $pDetails->typeOfAssistanceRequiredId = $request
-                ->typeOfAssistanceRequiredId;
-            $pDetails->projectProposerId =  $request->email;
-
-            // $pDetails->financialBreakDownDocumentLocation = $request->financialBreakDownDocumentLocation;
-            // $pDetails->busnessCaseDocumentLocation = $request->businessCaseDocumentLocation;
-            // $pDetails->asistanceRequiredToRefineDocuments = $request->asistanceRequiredToRefineDocuments;
-
-            // $pDetails->approved = $request->approved;
-            // $pDetails->approvedById = $request->approvedById;
-
+            $pDetails->typeOfProjectId = $request->type_of_projects_id;
+            $pDetails->projectDemographicId = $request->projectDemographic;
+            $pDetails->projectProposerId =  $projProposer->id;
             $pDetails->save();
+            
+            
+            // // ! this section will have the sending of emails functionality. 
+            // $to_name = $projProposer->name;
+            // $to_email = $projProposer->email;
+            // $bodyOfMail = "To activate your Account, follow the link below.";
+            // $data = array('name'=> $projProposer->name, 
+            //               'body' => $bodyOfMail);
+            // Mail::send(
+            //     'emails.mail', $data, 
+            // function($message) use ($to_name, $to_email) {
+            //     $message->to($to_email, $to_name)
+            //     ->subject('Riser Africa Activation Email.');
+            //     $message->from('ngugigeorge697@gmail.com','Riser Africa Activation Email.');
+            // });
 
-            // email.... 
+            return response(null,200);
+
 
         } else {
 
