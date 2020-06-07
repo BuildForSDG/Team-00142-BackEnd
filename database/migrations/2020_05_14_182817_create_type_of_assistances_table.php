@@ -13,11 +13,12 @@ class CreateTypeOfAssistancesTable extends Migration
      */
     public function up()
     {
-        // Schema::create('type_of_assistances', function (Blueprint $table) {
-        //     $table->bigIncrements('id');
-        //     $table->text('assistanceName');
-        //     $table->timestamps();
-        // });
+        Schema::create('type_of_assistances', function (Blueprint $table) {
+            $table->engine = "InnoDB";
+            $table->bigIncrements('id');
+            $table->text('assistanceName');
+            $table->timestamps();
+        });
     }
 
     /**

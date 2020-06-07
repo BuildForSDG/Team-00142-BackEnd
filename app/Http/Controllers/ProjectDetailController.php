@@ -38,7 +38,7 @@ class ProjectDetailController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(createProjectDetails $request)
+    public function store(Request $request)
     {
         $pDetails = new projectDetail();
         $pDetails->projectName = $request->projectName;
