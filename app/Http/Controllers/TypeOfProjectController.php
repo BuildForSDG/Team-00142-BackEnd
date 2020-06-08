@@ -15,7 +15,8 @@ class TypeOfProjectController extends Controller
      */
     public function index()
     {
-        return ProjectTypeResource::collection(typeOfProject::all());
+        $typeP = ProjectTypeResource::collection(typeOfProject::all());
+        return response()->json($typeP);
     }
 
     /**

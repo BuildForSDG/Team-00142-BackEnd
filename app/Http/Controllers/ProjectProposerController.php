@@ -16,7 +16,8 @@ class ProjectProposerController extends Controller
      */
     public function index()
     {
-        return ProjectProposerResource::collection(projectProposer::all());
+        $projectP = ProjectProposerResource::collection(projectProposer::all());
+        return response()->json($projectP);
     }
 
     /**

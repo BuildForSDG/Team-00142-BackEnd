@@ -19,7 +19,7 @@ class phaseOneRegistration extends Controller
         // return ProjectDetailsResource::collection(projectDetail::all());
         $data = projectDetail::all();
 
-        return $data;
+        return response()->json($data);
     }
 
     /**
@@ -58,26 +58,27 @@ class phaseOneRegistration extends Controller
             $pDetails->projectName = $request->projectName;
             $pDetails->type_of_projects_id = $request->type_of_projects_id;
             $pDetails->projectDemographic = $request->projectDemographic;
-            // $pDetails->projectDetails = $request->projectDetails;
+            $pDetails->projectDetails = $request->projectDetails;
             $pDetails->typeOfAssistanceRequiredId = $request
                 ->typeOfAssistanceRequiredId;
-            $pDetails->projectProposerId =  $request->email;
+            $pDetails->projectProposerId =  $request->id;
 
-            // $pDetails->financialBreakDownDocumentLocation = $request->financialBreakDownDocumentLocation;
-            // $pDetails->busnessCaseDocumentLocation = $request->businessCaseDocumentLocation;
-            // $pDetails->asistanceRequiredToRefineDocuments = $request->asistanceRequiredToRefineDocuments;
+        //     // $pDetails->financialBreakDownDocumentLocation = $request->financialBreakDownDocumentLocation;
+        //     // $pDetails->busnessCaseDocumentLocation = $request->businessCaseDocumentLocation;
+        //     // $pDetails->asistanceRequiredToRefineDocuments = $request->asistanceRequiredToRefineDocuments;
 
-            // $pDetails->approved = $request->approved;
-            // $pDetails->approvedById = $request->approvedById;
+        //     // $pDetails->approved = $request->approved;
+        //     // $pDetails->approvedById = $request->approvedById;
 
-            $pDetails->save();
+        //     $pDetails->save();
 
-            // email.... 
+        //     // email.... 
 
         } else {
 
             return respone('Error in email', 203);
         }
+        // return $request;
     }
 
     /**

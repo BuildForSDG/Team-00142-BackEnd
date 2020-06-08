@@ -19,7 +19,7 @@ class ProjectDetailController extends Controller
         // return ProjectDetailsResource::collection(projectDetail::all());
         $data = projectDetail::all();
 
-        return $data;
+        return response()->json($data);
     }
 
     /**
