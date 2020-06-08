@@ -7,6 +7,7 @@ use App\typeOfProject;
 use Illuminate\Http\Request;
 use  App\Http\Resources\typeOfProject\TypeOfProjectResourceCollection;
 use App\Http\Resources\typeOfProject\TypeOfProjectResource;
+
 class typesOfProject extends Controller
 {
     /**
@@ -38,7 +39,6 @@ class typesOfProject extends Controller
      */
     public function store(Request $request)
     {
-                        
     }
 
     /**
@@ -47,7 +47,7 @@ class typesOfProject extends Controller
      * @param  \App\projectDetail  $projectDetail
      * @return \Illuminate\Http\Response
      */
-    public function show($id,projectDetail $projectDetail)
+    public function show($id, projectDetail $projectDetail)
     {
         return new TypeOfProjectResource($projectDetail);
         // return $projectDetail;
@@ -71,37 +71,40 @@ class typesOfProject extends Controller
      * @param  \App\projectDetail  $projectDetail
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id, projectDetail $projectDetail)
+    public function update(Request $request, $id, projectDetail $projectDetail)
     {
-                
+
         // ! this section of the code will be used to update a single project.
         // * seeing if the files are set . 
-        if($request->hasFile('financialDocumentation')){
-            
-           $name = pathinfo($request->file('financialDocumentation')->getClientOriginalName(), PATHINFO_FILENAME);
-           $extension = pathinfo($request->file('financialDocumentation')->getClientOriginalName(), PATHINFO_EXTENSION);
-           $storageName = $name.time().'.'.$extension;
-           $request->file('financialDocumentation')->storeAs('public/FinancialDocuments', $storageName);
-           $projectDetail->financialBreakDownDocumentLocation =  'public/storage/FinancialDocuments/'.$storageName;
+        if ($request->hasFile('financialDocumentation')) {
+
+            $name = pathinfo($request->file('financialDocumentation')->getClientOriginalName(), PATHINFO_FILENAME);
+            $extension = pathinfo($request->file('financialDocumentation')->getClientOriginalName(), PATHINFO_EXTENSION);
+            $storageName = $name . time() . '.' . $extension;
+            $request->file('financialDocumentation')->storeAs('public/FinancialDocuments', $storageName);
+            $projectDetail->financialBreakDownDocumentLocation =  'public/storage/FinancialDocuments/' . $storageName;
         }
-        if($request->hasFile('businessCaeDocumentation')){
+        if ($request->hasFile('businessCaeDocumentation')) {
             $name = pathinfo($request->file('businessCaeDocumentation')->getClientOriginalName(), PATHINFO_FILENAME);
             $extension = pathinfo($request->file('businessCaeDocumentation')->getClientOriginalName(), PATHINFO_EXTENSION);
-            $storageName = $name.time().'.'.$extension;
+            $storageName = $name . time() . '.' . $extension;
             $request->file('financialDocumentation')->storeAs('public/BuinessCaseDocuments', $storageName);
-            $projectDetail->businessCaseDocumentLocation = 'public/storage/BuinessCaseDocuments/'.$storageName;
+            $projectDetail->businessCaseDocumentLocation = 'public/storage/BuinessCaseDocuments/' . $storageName;
         }
 
+        $projectDetail->projectName = $request->projectName;
         $projectDetail->typeOfProjectId = $request->typeOfProject;
-        $projectDetail->projectDemographicId =$request->projectDemographic;
-        $projectDetail->projectDetails =$request->projectDetails;
-        $projectDetail->typeOfAssistanceRequiredId=$request->typeOfAssistanceRequired;
-        $projectDetail->projectProposerId=$request->projectProposer;
+        $projectDetail->projectDemographicId = $request->projectDemographic;
+        $projectDetail->projectDetails = $request->projectDetails;
+        $projectDetail->typeOfAssistanceRequiredId = $request->typeOfAssistanceRequired;
+        $projectDetail->projectProposerId = $request->projectProposer;
 
         $projectDetail->save();
 
-        return response(null,201);
-        
+        return response(null, 201);
+
+        // return $request;
+
     }
 
     /**
@@ -110,9 +113,9 @@ class typesOfProject extends Controller
      * @param  \App\projectDetail  $projectDetail
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id,projectDetail $projectDetail)
+    public function destroy($id, projectDetail $projectDetail)
     {
         $projectDetail->delete();
-        return response(null,204);
+        return response(null, 204);
     }
 }
