@@ -14,6 +14,7 @@ class CreateProjectDemographicsTable extends Migration
     public function up()
     {
         Schema::create('project_demographics', function (Blueprint $table) {
+            $table->engine = "InnoDB";
             $table->bigIncrements('id');
             $table->text('name');
             $table->timestamps();

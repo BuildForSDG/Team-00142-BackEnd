@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\createAssistanceType;
+use App\Http\Resources\Project_Assistance\ProjectAssistanceResource;
 use App\typeOfAssistance;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,7 @@ class TypeOfAssistanceController extends Controller
      */
     public function index()
     {
-        //
+        return ProjectAssistanceResource::collection(typeOfAssistance::all());
     }
 
     /**
@@ -33,9 +35,13 @@ class TypeOfAssistanceController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(createAssistanceType $request)
     {
-        //
+        $assistanceType = new typeOfAssistance();
+        $assistanceType->assistanceName = $request->assistanceName;
+
+        $assistanceType->save();
+        return;
     }
 
     /**

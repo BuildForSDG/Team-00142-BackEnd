@@ -16,3 +16,11 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::apiResource('/projectDemo', 'ProjectDemographicController');
+Route::apiResource('/phaseOne', 'phaseOneRegistration');
+Route::apiResource('/phaseTwo', 'phaseTwoRegistration');
+Route::apiResource(
+    '/typeOfProjects/{typeOfProject}/projectDetail',
+    'typesOfProject'
+);

@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\createProjectDetails;
+use App\Http\Resources\Project_Details\ProjectDetailsResource;
 use App\projectDetail;
 use Illuminate\Http\Request;
 
@@ -14,7 +16,10 @@ class ProjectDetailController extends Controller
      */
     public function index()
     {
-        //
+        // return ProjectDetailsResource::collection(projectDetail::all());
+        $data = projectDetail::all();
+
+        return $data;
     }
 
     /**
@@ -35,7 +40,24 @@ class ProjectDetailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $pDetails = new projectDetail();
+        $pDetails->projectName = $request->projectName;
+        $pDetails->type_of_projects_id = $request->type_of_projects_id;
+        $pDetails->projectDemographic = $request->projectDemographic;
+        $pDetails->projectDetails = $request->projectDetails;
+        $pDetails->typeOfAssistanceRequiredId = $request->typeOfAssistanceRequiredId;
+        $pDetails->projectProposerId = $request->projectProposerId;
+        // $pDetails->financialBreakDownDocumentLocation = $request->financialBreakDownDocumentLocation;
+        // $pDetails->businessCaseDocumentLocation = $request->businessCaseDocumentLocation;
+        // $pDetails->asistanceRequiredToRefineDocuments = $request->asistanceRequiredToRefineDocuments;
+        // $pDetails->approved = $request->approved;
+        // $pDetails->approvedById = $request->approvedById;
+
+        // $pDetails->save();
+
+        return response([
+            null
+        ], 201);
     }
 
     /**
