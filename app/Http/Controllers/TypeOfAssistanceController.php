@@ -16,7 +16,8 @@ class TypeOfAssistanceController extends Controller
      */
     public function index()
     {
-        return ProjectAssistanceResource::collection(typeOfAssistance::all());
+        $typeA = ProjectAssistanceResource::collection(typeOfAssistance::all());
+        return response()->json($typeA);
     }
 
     /**

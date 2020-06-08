@@ -17,7 +17,8 @@ class typesOfProject extends Controller
      */
     public function index($id)
     {
-        return TypeOfProjectResourceCollection::collection(projectDetail::where('typeOfProjectId', $id)->paginate(5));
+        $typesP =  TypeOfProjectResourceCollection::collection(projectDetail::where('typeOfProjectId',$id)->paginate(5));
+        return response()->json($typesP);
     }
 
     /**

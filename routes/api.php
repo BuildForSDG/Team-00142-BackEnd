@@ -19,6 +19,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::apiResource('/projectDemo', 'ProjectDemographicController');
 Route::apiResource('/phaseOne', 'phaseOneRegistration');
+// Route::get('/phaseoneGet', 'phaseOneCOntroller@index')->name('phaseoneGet');
+// Route::post('/phaseonePost', 'phaseOneCOntroller@store');
 Route::apiResource('/phaseTwo', 'phaseTwoRegistration');
 Route::apiResource(
     '/typeOfProjects/{typeOfProject}/projectDetail',
