@@ -1,14 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-<<<<<<< HEAD
-
-class phaseTwoRegistration extends Controller
-{
-    //
-=======
 use\App\projectDetail;
 Use\App\User;
 // use App\projectDetail;
@@ -25,7 +18,7 @@ class phaseTwoRegistration extends Controller
     {
         $dataPhasetwo = projectDetail::all();
 
-        return $dataPhasetwo;
+        return response()->json($dataPhasetwo);
     }
 
     /**
@@ -124,5 +117,4 @@ class phaseTwoRegistration extends Controller
     {
         //
     }
->>>>>>> c9da1ac1d18aca285098b16c76701f6632f1e407
 }

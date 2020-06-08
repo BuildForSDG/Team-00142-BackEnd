@@ -22,7 +22,7 @@ class ProjectDemographicController extends Controller
         // return ProjectDemographicCollection::collection(projectDemographic::where('id',$id)->paginate(5));
         $demographic = projectDemographic::all();
 
-        return $demographic;
+        return response()->json($demographic);
     }
 
     /**
