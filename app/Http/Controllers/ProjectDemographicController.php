@@ -19,9 +19,10 @@ class ProjectDemographicController extends Controller
     {
         //returning all instances of project Demographics Info
         // return ProjectDemographicResource::collection(projectDemographic::all()->first());
+        // return ProjectDemographicCollection::collection(projectDemographic::where('id',$id)->paginate(5));
         $demographic = projectDemographic::all();
 
-        return $demographic;
+        return response()->json($demographic);
     }
 
     /**

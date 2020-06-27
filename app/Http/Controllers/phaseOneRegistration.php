@@ -19,7 +19,7 @@ class phaseOneRegistration extends Controller
         // return ProjectDetailsResource::collection(projectDetail::all());
         $data = projectDetail::all();
 
-        return $data;
+        return response()->json($data);
     }
 
     /**
@@ -97,12 +97,11 @@ class phaseOneRegistration extends Controller
             // });
 
             return response(null,200);
-
-
         } else {
 
             return respone('Error in email', 203);
         }
+        // return $request;
     }
 
     /**
