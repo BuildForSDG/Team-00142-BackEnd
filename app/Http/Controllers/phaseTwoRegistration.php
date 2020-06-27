@@ -58,9 +58,7 @@ class phaseTwoRegistration extends Controller
                 $request->file('financialDocumentation')->storeAs('public/BuinessCaseDocuments', $storageName);
                 $projectDetail->businessCaseDocumentLocation = 'public/storage/BuinessCaseDocuments/' . $storageName;
             }
-    
-            
-            
+                            
             $projectDetail->approved = 0;
             $projectDetail->projectDetails = $request->projectDetails;
             $projectDetail->typeOfAssistanceRequiredId = $request->typeOfAssistanceRequiredId;
@@ -68,7 +66,7 @@ class phaseTwoRegistration extends Controller
     
             $projectDetail->save();
     
-            return response(null, 200);
+            return response(null, 201);
         }
         
 
