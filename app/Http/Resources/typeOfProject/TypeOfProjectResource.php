@@ -26,6 +26,7 @@ class TypeOfProjectResource extends JsonResource
                 'typeOfAssistanceRequired' => $this->belongsToTypeOfAssistance
                                                     ->assistanceName,           
                 'projectProposer'=>$this->belongsToProjectProposer->name,
+                'projectProposerImage'=>$this->belongsToProjectProposer->proposerImage,
                 'dateubmitted'=>$this->approvedAt,   
                 'financialDocumentation'=>[
                     'href' => $this->financialBreakDownDocumentLocation
@@ -46,6 +47,7 @@ class TypeOfProjectResource extends JsonResource
                             'typeOfAssistanceRequired'=> $this->belongsToTypeOfAssistance
                                                               ->assistanceName,
                             'projectProposer'=>$this->belongsToProjectProposer->name,
+                            'projectProposerImage'=>$this->belongsToProjectProposer->proposerImage,
                             'dateubmitted'=>$this->approvedAt                       
             ];
         }     

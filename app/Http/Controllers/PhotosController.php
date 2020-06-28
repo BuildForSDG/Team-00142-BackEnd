@@ -12,9 +12,19 @@ class PhotosController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index($id)
     {
-        //
+        // ! this function is used to get the photos from a particular project. 
+        $photos = photos::where('projectId',$id)->get();
+
+        return $photos;
+        if (count($photos) < 1) {
+            # code...
+            return response("There are no photos for this project.",200);
+        } else {
+            # code...
+            return response($photos,200);
+        }                
     }
 
     /**
@@ -46,7 +56,8 @@ class PhotosController extends Controller
      */
     public function show(photos $photos)
     {
-        //
+        //! 
+        // return "This is the return.";
     }
 
     /**

@@ -26,3 +26,5 @@ Route::apiResource(
     '/typeOfProjects/{typeOfProject}/projectDetail',
     'typesOfProject'
 );
+
+Route::apiResource('/photo/{idOfProjectId}/ProjectId', 'PhotosController');
