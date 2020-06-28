@@ -24,7 +24,8 @@ class TypeOfProjectResourceCollection extends Resource
                 'projectDetails'=>$this->projectDetails,
                 'typeOfAssistanceRequired'=> $this->belongsToTypeOfAssistance->assistanceName,
                 'projectProposer'=>$this->belongsToProjectProposer->name,
-                'dateubmitted'=>$this->approvedAt,   
+                'projectProposerImage'=>$this->belongsToProjectProposer->proposerImage,
+                'dateubmitted'=>$this->created_at,   
                 'financialDocumentation'=>[
                     'href' => $this->financialBreakDownDocumentLocation
                 ],
@@ -44,7 +45,8 @@ class TypeOfProjectResourceCollection extends Resource
                             'typeOfAssistanceRequired'=> $this->belongsToTypeOfAssistance->assistanceName,
                             // 'typeOfAssistanceRequired'=> $this->belongsToTypeOfAssistance->assistanceName,                                                                
                             'projectProposer'=>$this->belongsToProjectProposer->name,
-                            'dateubmitted'=>$this->approvedAt                                    
+                            'projectProposerImage'=>$this->belongsToProjectProposer->proposerImage,
+                            'dateubmitted'=>$this->created_at                                    
             ];
         }         
     }

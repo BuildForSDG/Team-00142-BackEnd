@@ -41,6 +41,8 @@ class phaseOneRegistration extends Controller
     public function store(Request $request)
     {
 
+        // return $request;
+
         $projProposer = new projectProposer();
         $projProposer->phoneNumber = $request->phoneNumber;
         $projProposer->email = $request->email;
@@ -79,24 +81,8 @@ class phaseOneRegistration extends Controller
             $pDetails->typeOfProjectId = $request->type_of_projects_id;
             $pDetails->projectDemographicId = $request->projectDemographic;
             $pDetails->projectProposerId =  $projProposer->id;
-            $pDetails->save();
-            
-            
-            // // ! this section will have the sending of emails functionality. 
-            // $to_name = $projProposer->name;
-            // $to_email = $projProposer->email;
-            // $bodyOfMail = "To activate your Account, follow the link below.";
-            // $data = array('name'=> $projProposer->name, 
-            //               'body' => $bodyOfMail);
-            // Mail::send(
-            //     'emails.mail', $data, 
-            // function($message) use ($to_name, $to_email) {
-            //     $message->to($to_email, $to_name)
-            //     ->subject('Riser Africa Activation Email.');
-            //     $message->from('ngugigeorge697@gmail.com','Riser Africa Activation Email.');
-            // });
-
-            return response(null,200);
+            $pDetails->save();                                    
+            return response($pDetails->id,200);
         } else {
 
             return respone('Error in email', 203);

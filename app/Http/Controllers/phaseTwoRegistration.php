@@ -39,8 +39,9 @@ class phaseTwoRegistration extends Controller
      */
     public function store(Request $request)
     {    
-        $projectDetail =  projectDetail::where('id','=',$request->projectId)->get();
-        foreach ($projectDetail as $projectDetail) {
+
+        $projectDetails =  projectDetail::where('id','=',$request->projectId)->get();        
+        foreach ($projectDetails as $projectDetail) {
             # code...
             if ($request->hasFile('financialDocumentation')) {
 
@@ -65,9 +66,9 @@ class phaseTwoRegistration extends Controller
     
             $projectDetail->save();
     
+            
             return response(null, 201);
-        }
-        
+        }        
 
     }
 
